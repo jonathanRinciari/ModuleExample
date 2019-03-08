@@ -11,8 +11,9 @@ import ProgressHUD
 
 @objc(RNProgressHud)
 class RNProgressHud: NSObject {
-  private var errorOptions: [String : UIColor] = [
-    "hudColor" : UIColor.red
+  private var errorOptions: [String : String] = [
+    "hudColor" : "#FFFFFF",
+    
   ]
   @objc
   func constantsToExport() -> [AnyHashable : Any]! {
@@ -31,7 +32,7 @@ class RNProgressHud: NSObject {
   @objc
   func setOptions(_ data: [String: String], hudType type: String) {
     
-    self.errorOptions["hudColor"] = UIColor.blue;
+    self.errorOptions["hudColor"] = UIColor.init(hexString: "#aad4da");
   }
   
   @objc
