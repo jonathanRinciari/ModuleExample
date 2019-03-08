@@ -41,7 +41,6 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		FC3204F322320D6E0041456C /* UIColor+Hexadecimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3204F222320D6E0041456C /* UIColor+Hexadecimal.swift */; };
 		FCEFBD262230D4FD0076E658 /* RNProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEFBD252230D4FD0076E658 /* RNProgressHud.swift */; };
 		FCEFBD552230D5650076E658 /* RNProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = FCEFBD542230D5650076E658 /* RNProgressHud.m */; };
 		FCEFBD882230DD220076E658 /* ProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCEFBD872230DD220076E658 /* ProgressHUD.framework */; };
@@ -355,7 +354,6 @@
 		E7A4997901A2BC0E94EF519F /* Pods_ModuleExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModuleExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FC3204F222320D6E0041456C /* UIColor+Hexadecimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexadecimal.swift"; sourceTree = "<group>"; };
 		FCEFBD242230D4FD0076E658 /* ModuleExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModuleExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		FCEFBD252230D4FD0076E658 /* RNProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNProgressHud.swift; sourceTree = "<group>"; };
 		FCEFBD542230D5650076E658 /* RNProgressHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNProgressHud.m; sourceTree = "<group>"; };
@@ -600,7 +598,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				FC3204CC22320D4B0041456C /* Extensions */,
 				13B07FAE1A68108700A75B9A /* ModuleExample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ModuleExampleTests */,
@@ -640,14 +637,6 @@
 				251306A2BF7F546A4508FF9A /* Pods-ModuleExample.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FC3204CC22320D4B0041456C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				FC3204F222320D6E0041456C /* UIColor+Hexadecimal.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1210,7 +1199,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCEFBD552230D5650076E658 /* RNProgressHud.m in Sources */,
-				FC3204F322320D6E0041456C /* UIColor+Hexadecimal.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				FCEFBD262230D4FD0076E658 /* RNProgressHud.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,

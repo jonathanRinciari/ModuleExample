@@ -11,46 +11,101 @@ import ProgressHUD
 
 @objc(RNProgressHud)
 class RNProgressHud: NSObject {
-  private var errorOptions: [String : String] = [
-    "hudColor" : "#FFFFFF",
-    
-  ]
-  @objc
-  func constantsToExport() -> [AnyHashable : Any]! {
-    return ["working": true]
-  }
   
   @objc
   static func requiresMainQueueSetup() -> Bool {
-    return true
+    return false
   }
   
-  // Add Methods to update styling to each pop up style
-  // Spinner Color
-  // Hud Color
+  @objc
+  func showSuccess(_ message: String, options colorOptions: [String : String]) {
+    self.setProgressHud(message, colorOptions, "success");
+  }
   
   @objc
-  func setOptions(_ data: [String: String], hudType type: String) {
+  func showLoading(_ message : String, options colorOptions: [String : String]) {
+    self.setProgressHud(message, colorOptions, "loading")
+  }
+  
+  @objc
+  func showError(_ message: String, options colorOptions: [String : String]) {
+      self.setProgressHud(message, colorOptions, "error")
+  }
+  
+  @objc
+  func dismiss() {
+    ProgressHUD.dismiss();
+  }
+  
+  private func setProgressHud(_ message : String?, _ colors: [String : String], _ type : String) {
     
-    self.errorOptions["hudColor"] = UIColor.init(hexString: "#aad4da");
+    if let hudColor = colors["hudColor"] {
+
+      ProgressHUD.hudColor(hexConvertUtil(hex: hudColor));
+    }
+    
+    if let spinnerColor = colors["spinnerColor"] {
+      ProgressHUD.spinnerColor(hexConvertUtil(hex: spinnerColor))
+    }
+    
+    if let backgroundColor = colors["backgroundColor"] {
+      ProgressHUD.backgroundColor(hexConvertUtil(hex: backgroundColor))
+    }
+    
+    if let statusColor = colors["statusColor"] {
+      ProgressHUD.statusColor(hexConvertUtil(hex: statusColor))
+    }
+    
+    if let userMessage = message {
+      self.showSpinner(userMessage, hudType: type)
+    } else {
+      if type == "success" {
+        showSpinner("", hudType: "success_without_message")
+      } else if type == "error" {
+        showSpinner("", hudType: "error_without_message")
+      } else {
+        showSpinner("", hudType: "")
+      }
+    }
   }
   
-  @objc
-  func showSuccess(_ message: String) {
-//    ProgressHUD.hudColor(UIColor.init(red: 18, green: 124, blue: 23, alpha: 1))
-    ProgressHUD.showSuccess(message)
+  private func showSpinner(_  message : String, hudType : String) {
+    switch hudType {
+    case "success":
+      ProgressHUD.showSuccess(message);
+    case "success_without_message":
+      ProgressHUD.showSuccess();
+    case "error":
+      ProgressHUD.showError(message);
+    case "error_without_message":
+      ProgressHUD.showError();
+    case "loading":
+      ProgressHUD.show();
+    default:
+      ProgressHUD.show();
+    }
   }
   
-  @objc
-  func showError(_ message: String) {
-    print(errorOptions)
-    ProgressHUD.hudColor(self.errorOptions["hudColor"]);
-    ProgressHUD.showError(message)
-  }
   
-  @objc
-  func showLoading() {
-    ProgressHUD.show();
-  }
-  
+  private func hexConvertUtil(hex: String) -> UIColor {
+      var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+      
+      if (cString.hasPrefix("#")) {
+        cString.remove(at: cString.startIndex)
+      }
+      
+      if ((cString.count) != 6) {
+        return UIColor.gray
+      }
+      
+      var rgbValue:UInt32 = 0
+      Scanner(string: cString).scanHexInt32(&rgbValue)
+      
+      return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+      )
+    }
 }

@@ -11,19 +11,17 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { NativeModules } from 'react-native'
 
-  NativeModules.RNProgressHud.showError("Beautiful")
-
 setTimeout(() => {
-  NativeModules.RNProgressHud.showLoading()
+  NativeModules.RNProgressHud.showSuccess("Error", {backgroundColor: "#AFAAF4", spinnerColor: "#000000", hudColor: "#800080"})
 }, 3000);
 
 setTimeout(() => {
-  NativeModules.RNProgressHud.setOptions({test: "Test"}, 'error');
-}, 5000);
+  NativeModules.RNProgressHud.showLoading("Error", {backgroundColor: "#000000", spinnerColor: "#000000", hudColor: "#000000"})
+}, 6000);
 
 setTimeout(() => {
-  NativeModules.RNProgressHud.showError("Beautiful")
-}, 8000);
+  NativeModules.RNProgressHud.dismiss();
+}, 10000);
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:

@@ -12,11 +12,9 @@
 
 
 @interface RCT_EXTERN_MODULE(RNProgressHud, NSObject)
-
-  RCT_EXTERN_METHOD(showSuccess: (NSString) message)
-  RCT_EXTERN_METHOD(showError: (NSString) message)
-  RCT_EXTERN_METHOD(showLoading)
-  RCT_EXTERN_METHOD(setOptions: (NSDictionary *) data hudType: (NSString) type)
-
+  RCT_EXTERN_METHOD(showSuccess: (NSString) message options: (NSDictionary *) options)
+  RCT_EXTERN_METHOD(showError: (NSString) message options: (NSDictionary *) options)
+  RCT_EXTERN_METHOD(showLoading: (NSString) message options: (NSDictionary *) options)
+  RCT_EXTERN_METHOD(dismiss)
 @end
 
